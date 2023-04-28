@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button, Col, Container, Row, Form, Nav } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
@@ -12,9 +12,14 @@ const ViewCountry = () => {
     const [viewBasicDetails, setViewBasicDetails] = useState(true);
     const [viewLocationDetails, setViewLocationDetails] = useState(false);
     const [viewOthers, setViewOthers] = useState(false);
-    // console.log(CountryData);
+    console.log(location);
     const handleBackClick = () => {
         navigate(-1);
+    };
+
+    const handleCountryData = () => {
+        setCountryData(location.state);
+        return true;
     };
 
     const handleViewBasicDetails = () => {
@@ -35,8 +40,14 @@ const ViewCountry = () => {
         setViewLocationDetails(false);
     };
 
+    window.addEventListener('hashchange', function (event) {
+        location.state = CountryData;
+    });
+
+
     return (
         <>
+        {CountryData && (
             <Container>
                 <h1 className="h1" style={{ paddingTop: 60 }}>View Country</h1>
                 <br />
@@ -48,13 +59,13 @@ const ViewCountry = () => {
                     <Card.Header>
                         <Nav variant="tabs" defaultActiveKey="#first">
                         <Nav.Item>
-                            <Nav.Link href="#first" onClick={handleViewBasicDetails}>Basic Details</Nav.Link>
+                            <Nav.Link onClick={handleViewBasicDetails}>Basic Details</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#second" onClick={handleViewLocationDetails}>Location Details</Nav.Link>
+                            <Nav.Link onClick={handleViewLocationDetails}>Location Details</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#third" onClick={handleViewOthers} >Others</Nav.Link>
+                            <Nav.Link onClick={handleViewOthers} >Others</Nav.Link>
                         </Nav.Item>
                         </Nav>
                     </Card.Header>
@@ -188,7 +199,9 @@ const ViewCountry = () => {
                     </Card.Body>
                 </Card>
             </Container>
+        )}
         </>
+
     );
 };
 
