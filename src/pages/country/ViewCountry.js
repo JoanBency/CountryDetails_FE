@@ -122,7 +122,7 @@ const ViewCountry = () => {
                                         {/* <Form.Text className="content-text text-overflow view-content-text" style={{ fontSize: 15 }}>{CountryData.borders[0]}</Form.Text> */}
                                         <Container style={{ marginLeft: '60%' }}>
                                             
-                                            {CountryData.borders.map((border) => (
+                                            {CountryData.borders && CountryData.borders.map((border) => (
                                             <Col xs={12} sm={6} md={4} lg={3} xl={2} style={{ width: 120, height: 50, borderRadius: 10, backgroundColor: "#CCFFFF" , borderStyle: "solid", borderWidth: 1, fontSize: 18, paddingLeft: 40, paddingTop: 15, marginBottom: 10 }}>{border}</Col>
                                             ))}
                                             
@@ -152,7 +152,7 @@ const ViewCountry = () => {
                                 <Col sm={12}>
                                     <Form.Group className='mb-3'>
                                             <Form.Label column sm={6} className="content-title view-content-title" style={{ marginLeft: '9vw', fontSize: 20 }}>Languages</Form.Label>
-                                            {Object.values(CountryData.languages).map((language) => (
+                                            {Object.values(CountryData.languages) && Object.values(CountryData.languages).map((language) => (
                                             <Form.Text className="content-text text-overflow view-content-text" style={{ fontSize: 15 }}>{language}, </Form.Text>
                                             ))}
                                     </Form.Group>
