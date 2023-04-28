@@ -16,6 +16,12 @@ describe('The Search Home Page', () => {
   it('Search Countries button works', () => {
     cy.get('button').contains('Search Countries').click();
   });
+});
+
+describe('The Searching Page', () => {
+  beforeEach(('passes'), () => {
+    cy.visit(`${baseUrl}/search`);
+  });
   it('Search input field works', () => {
     cy.visit(`${baseUrl}/search`);
     cy.get('input').type(CountryName);

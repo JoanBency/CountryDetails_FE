@@ -14,7 +14,8 @@ const SearchCountry = () => {
         setCountryName(e.target.value);
         if(CountryName.length > 1) {
         // setCardDisplayed(true);
-        fetch(`https://countrydetails-api.herokuapp.com/api/country/${CountryName}`)
+        // console.log(process.env.REACT_APP_API_URL);
+        fetch(`${process.env.REACT_APP_API_URL}/api/country/${CountryName}`)
             .then((res) => res.json())
             .then((data) => {
                 if(data.status === 404) {
@@ -24,13 +25,13 @@ const SearchCountry = () => {
                     setCardDisplayed(true);
                     setCountryData(data);
                 }
-                console.log(data);
+                // console.log(data);
             });
         }
     };
 
     const handleCardClick = (country) => {
-        console.log(country);
+        // console.log(country);
         // window.location.href = `/view-country/${country.name.common}`;
         // Link(`/view-country/${country.name.common}`);
         navigate(`/view-country/${country.name.common}`, {state: country});

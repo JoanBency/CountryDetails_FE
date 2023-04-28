@@ -12,7 +12,7 @@ const ViewCountry = () => {
     const [viewBasicDetails, setViewBasicDetails] = useState(true);
     const [viewLocationDetails, setViewLocationDetails] = useState(false);
     const [viewOthers, setViewOthers] = useState(false);
-    console.log(CountryData);
+    // console.log(CountryData);
     const handleBackClick = () => {
         navigate(-1);
     };
