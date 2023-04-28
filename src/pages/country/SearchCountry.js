@@ -14,7 +14,7 @@ const SearchCountry = () => {
         setCountryName(e.target.value);
         if(CountryName.length > 1) {
         // setCardDisplayed(true);
-        console.log(process.env.REACT_APP_API_URL);
+        // console.log(process.env.REACT_APP_API_URL);
         fetch(`${process.env.REACT_APP_API_URL}/api/country/${CountryName}`)
             .then((res) => res.json())
             .then((data) => {
