@@ -58,7 +58,7 @@ const SearchCountry = () => {
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     {CountryData.map((country) => (
                         <div class="col">
-                            <div class="card h-100" onClick={() => handleCardClick(country)}>
+                            <div class="card h-100" style={{ cursor: "pointer" }} onClick={() => handleCardClick(country)}>
                                 <img src={country.flags.png} class="card-img-top" alt={country.flags.alt} />
                                 <div class="card-body">
                                     <h3 class="card-title">{country.name.common}</h3>
